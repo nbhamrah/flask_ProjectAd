@@ -16,7 +16,7 @@
         <div class="container">
         <img src="/static/Panneaux_archi_alu_composite.png" width="1390" height="580" alt="" style="filter: brightness(55%);"/>
           <div class="centered">
-              <img src="static/adfastlogo.png" alt="" width="250" height="100"/>
+              <img src="/static/adfastlogo.png" alt=""/>
               <p class="ex1"><b>We Are The Leading Experts In Silicone Sealant Color Technologies</b></p>
               <p>We're dedicated to offer you the best silicone sealants for your architectural wall panels</p>
 
@@ -25,8 +25,13 @@
                   <iframe id="headervideo" width="560" height="315" src="https://www.youtube.com/embed/VBsSyTL1nO8?autoplay=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <!--<div id="fade" onClick="lightbox_close();"></div>-->
-              <div>
-                  <a href="#" onclick="lightbox_open();">Get to know us</a>
+              <div style="width: 100%; justify-items: center; display: flex;">
+                  <div  style="width: 30%; padding-left: 200px;">
+                      <div onclick="lightbox_open();" style="border: 2px solid #FFF; height: 100%; padding-top: 10px">
+                      <img src="/static/play_button.png" alt="" height="20px" width="20px"/>
+                      <span>Get to know us</span>
+                          </div>
+                  </div>
               </div>
           </div>
     </div>
@@ -57,14 +62,14 @@
 
             <h3><span style=""> Order Now </span></h3>
             <div class="block">
-                <label for="fname">First Name<span class="required">*</span>
+                <label for="fname" ><span style="padding-right: 17em">First Name<span class="required">*</span></span>
                     <br>
-                <input aria-describedby="required-description" id="fname" type="text" name="fname" style="width: 500px;" required/>
+                <input aria-describedby="required-description" id="fname" type="text" name="fname" style="width: 500px; line-height: 25px" required/>
                 </label>
                 <br><br>
-                <label for="lname">Last Name<span class="required">*</span>
+                <label for="lname"><span style="padding-right: 17em">Last Name<span class="required">*</span></span>
                     <br>
-                <input aria-describedby="required-description" id="lname" type="text" name="lname" style="width: 500px;" required/>
+                <input aria-describedby="required-description" id="lname" type="text" name="lname" style="width: 500px; line-height: 25px" required/>
                 </label>
             </div>
             <br><br>
