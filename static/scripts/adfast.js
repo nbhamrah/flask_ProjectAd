@@ -20,6 +20,8 @@ function getProductData() {
 
 function displayColorsTitle(title){
 
+    document.getElementById("choose-color-error").style.display="none";
+    document.getElementById("choose-color-error-bottom").style.display="none";
     //SET VALUE OF span with id "product-colors-heading"
     document.getElementById("product-colors-heading").innerHTML = title.toUpperCase() + " AVAILABLE COLORS";
 }
@@ -117,6 +119,7 @@ function displayColorTiles(product_details){
 function formValidation(){
     if(!selectedHTMLElementTile){
         document.getElementById("choose-color-error").style.display="block";
+        document.getElementById("choose-color-error-bottom").style.display="block";
         return false;
     }
     return true;
