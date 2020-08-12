@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href='/static/css/adfast.css' rel='stylesheet'>
+    <title>Make Order</title>
+</head>
+
+<body>
+    <script src="/static/scripts/adfast.js"></script>
+    <header>
+        <div class="container">
+        <img src="/static/Panneaux_archi_alu_composite.png" width="1390" height="580" alt="" style="filter: brightness(55%);"/>
+          <div class="centered">
+              <img src="static/adfastlogo.png" alt="" width="250" height="100"/>
+              <p class="ex1"><b>We Are The Leading Experts In Silicone Sealant Color Technologies</b></p>
+              <p>We're dedicated to offer you the best silicone sealants for your architectural wall panels</p>
+
+              <div id="light">
+                  <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
+                  <iframe id="headervideo" width="560" height="315" src="https://www.youtube.com/embed/VBsSyTL1nO8?autoplay=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <!--<div id="fade" onClick="lightbox_close();"></div>-->
+              <div>
+                  <a href="#" onclick="lightbox_open();">Get to know us</a>
+              </div>
+          </div>
+    </div>
+    </header>
+
+    <form action="{{ url_for('orders_resource') }}" method="post" id="orderForm" onsubmit="return formValidation();">
+        <h3><span style="font-size: 130%">What brand of panel are you using?</span></h3>
+        <br>
+        <select id="select-product" name="selected_product" placeholder="Pick the brand" onchange="getProductData();">
+            <option value=""></option>
+            {%  for prod, prod_details in prod_list.items() %}
+             <option value="{{ json.dumps({prod: prod_details}) }}" >{{ prod }}</option>
+            {%  endfor %}
+        </select>
+
+        <div  id="order-details-selection" style="display: none;">
+            <br><br>
+            <span style="color:#00326C"; id="product-colors-heading"></span> <!-- THIS SPAN IS RESPONSIBLE FOR HEADING "X AVAILABLE COLORS" -->
+            <hr>
+            <span id="choose-color-error" class="required" style="display: none;">PLEASE SELECT A COLOR</span>
+            <!-- COLOR TILES -->
+            <table id="color-tiles" style="border-spacing: 20px;">
+            </table>
+
+            <label>
+                <input type="text" id="selectedColor" name="selectedColor" value="" style="display:none;" readonly>
+            </label>
+
+            <h3><span style=""> Order Now </span></h3>
+            <div class="block">
+                <label for="fname">First Name<span class="required">*</span>
+                    <br>
+                <input aria-describedby="required-description" id="fname" type="text" name="fname" style="width: 500px;" required/>
+                </label>
+                <br><br>
+                <label for="lname">Last Name<span class="required">*</span>
+                    <br>
+                <input aria-describedby="required-description" id="lname" type="text" name="lname" style="width: 500px;" required/>
+                </label>
+            </div>
+            <br><br>
+            <table style="margin-left: 200px;" id="product-volumes">
+                    <tr>
+                        <td>
+                            <img src= "/static/304ml.png" alt="" width="150" height="150">
+                            <br>
+                            <input type="radio" id="volume1" name="prod-volume" value="304" required="required">
+                            <label for="volume1">304 ml</label>
+                        </td>
+                        <td>
+                            <img src= "/static/600ml.png" alt="" width="150" height="150">
+                            <br>
+                            <input type="radio" id="volume2" name="prod-volume" value="600">
+                            <label for="volume2">600 ml</label>
+                        </td>
+                    </tr>
+                </table>
+            <br><br>
+                 <input type="submit" value="Submit Order" class="submit-order" id=submit-order">
+            </div>
+        </div>
+    </form>
+<footer style="height: 300px"></footer>
+</body>
+</html>
